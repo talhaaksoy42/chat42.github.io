@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./jq.js"></script>
+    <script src="./js.js"></script>
+    <style>
+        @media (min-width: 640px) {
+            .sm\:h-1-12 {
+                height: 8.333333%;
+            }
+        }
+        @media (min-width: 640px) {
+            .sm\:h-11-12 {
+                height: 91.666667%;
+            }
+        }
+        @media (min-width: 640px) {
+            .sm\:h-10-12 {
+                height: 83.333333%;
+            }
+        }
+        @media (min-width: 640px) {
+            .sm\:h-25 {
+                height: 100px;
+            }
+        }
+        @media (min-width: 640px) {
+            .sm\:resizeble {
+                resize: horizontal;
+                overflow: hidden;
+                min-width: 200px;
+                max-width: 800px;
+            }
+        }
+		@media (min-width: 640px) {
+            .sm\:none {
+                display:none;
+            }
+        }
+		@media (min-width: 640px) {
+            .sm\:bg-darkblue {
+                background-color: #1e1a45;
+            }
+        }
+		@media (min-width: 640px) {
+            .sm\:bg-darkblue-lower1 {
+                background-color: #292264;
+            }
+        }
+        .clear
+        {
+            clear:both;
+        }
+        .h-1-12
+        {
+            height: 8.333333%;
+        }
+        .h-11-12
+        {
+            height: 91.666667%;
+        }
+        .h-10-12
+        {
+            height: 83.333333%;
+        }
+        .h-25
+        {
+            height: 100px;
+        }
+        .bg-darkblue
+        {
+            background-color: #1e1a45;
+        }
+        .bg-darkblue-lower1
+        {
+            background-color: #292264;
+        }
+        .resizeble
+        {
+            resize: horizontal;
+            overflow: hidden;
+            min-width: 200px;
+            max-width: 800px;
+        }
+        .player1-text-place , .player2-text-place
+        {
+            word-wrap: break-word;
+        }
+        .no-scrollbar::-webkit-scrollbar
+        {
+            display:none;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+		.none
+		{
+			display:none;
+		}
+		.cut-text
+		{
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			width:300px;
+			height: 50px;
+			border:1px solid black;
+		}
+        .mobile-pp
+        {
+            width:200px;
+            height:200px;
+        }
+        .mobile-mini-pp
+        {
+            width:75px;
+            height:75px;
+        }
+        .active
+        {
+            border-bottom:2px solid rgb(96 165 250);
+            padding-bottom: 8px;
+        }
+        .circles{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .circles li{
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+        }
+        .circles li:nth-child(1){
+            left: 5%;
+            width: 40px;
+            height: 40px;
+            animation-delay: 0s;
+        }
+        .circles li:nth-child(2){
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+        .circles li:nth-child(3){
+            left: 20%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+        .circles li:nth-child(4){
+            left: 10%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+        .circles li:nth-child(5){
+            left: 25%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+        .circles li:nth-child(6){
+            left: 45%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 3s;
+        }
+        .circles li:nth-child(7){
+            left: 35%;
+            width: 70px;
+            height: 70px;
+            animation-delay: 7s;
+        }
+        .circles li:nth-child(8){
+            left: 40%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 25s;
+        }
+        .circles li:nth-child(9){
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+        .circles li:nth-child(10){
+            left: 30%;
+            width: 50px;
+            height: 50px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+        @keyframes animate {
+
+            0%{
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+
+            100%{
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+
+        }
+		.circles-mobile{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .circles-mobile li{
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+        }
+        .circles-mobile li:nth-child(1){
+            left: 5%;
+            width: 40px;
+            height: 40px;
+            animation-delay: 0s;
+        }
+        .circles-mobile li:nth-child(2){
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+        .circles-mobile li:nth-child(3){
+            left: 20%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+        .circles-mobile li:nth-child(4){
+            left: 35%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+        .circles-mobile li:nth-child(5){
+            left: 45%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+        .circles-mobile li:nth-child(6){
+            left: 55%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 3s;
+        }
+        .circles-mobile li:nth-child(7){
+            left: 65%;
+            width: 70px;
+            height: 70px;
+            animation-delay: 7s;
+        }
+        .circles-mobile li:nth-child(8){
+            left: 70%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 25s;
+        }
+        .circles-mobile li:nth-child(9){
+            left: 80%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+        .circles-mobile li:nth-child(10){
+            left: 90%;
+            width: 50px;
+            height: 50px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+    </style>
+</head>
+<body class = "sm:bg-darkblue-lower1">
+	<!-- Desktop Design -->
+    <div class="main sm:w-full sm:h-screen sm:visible none sm:flex sm:justifty-start">
+        <!-- Left - Bar -->
+        <div class="left-bar sm:w-24 sm:h-full sm:visible mobile invisible hybrid bg-blue-900 relative">
+            <div class="menu sm:w-full sm:h-11-12 mobile hybrid bg-darkblue">
+                <div class="menu-icon w-full h-1/6 flex">
+                    <div class = "m-auto">
+                        <svg class = "w-10 h-10 fill-white" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m24 12.42-4.428 4.415H24zm-4.428-4.417-4.414 4.418v4.414h4.414V12.42L24 8.003V3.575h-4.428zm-4.414 0 4.414-4.428h-4.414zM0 15.996h8.842v4.43h4.412V12.42H4.428l8.826-8.846H8.842L0 12.421z"/>
+                        </svg>
+                        <span class="text-center text-white font-bold text-xl">Chat</span>
+                    </div>
+                </div>
+                <div class="menu-icon sm:w-full sm:h-1/6 sm:border-l-2 sm:border-blue-800 sm:hover:border-blue-400 sm:flex mobile hybrid">
+                    <i class="fa-regular fa-bookmark z-10 w-10 h-10 m-auto text-blue-800 hover:cursor-pointer hover:text-blue-400"></i>
+                </div>
+                <div class="menu-icon sm:w-full sm:h-1/6 sm:border-l-2 sm:border-blue-800 sm:hover:border-blue-400 sm:flex mobile hybrid">
+                    <i class="fa-regular fa-question z-10 w-10 h-10 m-auto text-blue-800 hover:cursor-pointer hover:text-blue-400"></i>
+                </div>
+                <div class="menu-icon sm:w-full sm:h-1/6 sm:border-l-2 sm:border-blue-800 sm:hover:border-blue-400 sm:flex mobile hybrid">
+                    <i class="fa-regular fa-question z-10 w-10 h-10 m-auto text-blue-800 hover:cursor-pointer hover:text-blue-400"></i>
+                </div>
+                <div class="menu-icon sm:w-full sm:h-1/6 sm:border-l-2 sm:border-blue-800 sm:hover:border-blue-400 sm:flex mobile hybrid">
+                    <i class="fa-regular fa-question z-10 w-10 h-10 m-auto text-blue-800 hover:cursor-pointer hover:text-blue-400"></i>
+                </div>
+                <div class="menu-icon sm:w-full sm:h-1/6 sm:border-l-2 sm:border-blue-800 sm:hover:border-blue-400 sm:flex mobile hybrid">
+                    <i class="fa-regular fa-question z-10 w-10 h-10 m-auto text-blue-800 hover:cursor-pointer hover:text-blue-400"></i>
+                </div>
+            </div>
+            <div class="settings sm:w-full sm:h-1-12 mobile hybrid bg-darkblue border-l-2 border-blue-800 hover:border-blue-400 flex">
+                <i class="fa-solid fa-gear z-10 w-10 h-10 m-auto text-blue-800 hover:cursor-pointer hover:text-blue-400"></i>
+            </div>
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <!-- Left - Bar -->
+        <!-- Chat - Side -->
+        <div class="chat-side sm:h-full sm:w-2/6 sm:resizeble sm:visible mobile invisible hybrid bg-darkblue-lower1">
+            <!-- Chat Search -->
+            <div class="search-bar sm:w-full sm:h-1-12 sm:flex mobile hybrid">
+                <input type="text" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome" class = "w-full h-full bg-darkblue-lower1 text-white border-b-2 pl-6">
+            </div>
+            <!-- Chat Search -->
+            <!-- Chat Place -->
+            <div class="chat-place sm:w-full sm:h-10-12 mobile hybrid overflow-y-scroll no-scrollbar">
+                <!-- Kanal Mesaj Alanı -->
+                <div class="chat-place-message sm:w-full sm:h-full">
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto">Message Owner Name</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto">Message Owner Name</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto">Message Owner Name</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto">Message Owner Name</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto">Message Owner Name</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto">Message Owner Name</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto">Message Owner Name</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                </div>
+                <!-- Kanal Mesaj Alanı -->
+                <!-- Grup Mesaj Alanı -->
+                <div class="chat-place-group-message sm:w-full sm:h-full none">
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto truncate">Message Owner Name && Message Owner 2</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto truncate">Message Owner Name && Message Owner 2</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto truncate">Message Owner Name && Message Owner 2</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto truncate">Message Owner Name && Message Owner 2</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto truncate">Message Owner Name && Message Owner 2</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto truncate">Message Owner Name && Message Owner 2</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto truncate">Message Owner Name && Message Owner 2</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                </div>
+                <!-- Grup Mesaj Alanı -->
+                <!-- Dm Mesaj Alanı -->
+                <div class="chat-place-dm-message sm:w-full sm:h-full none">
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto truncate">Message Owner Name && DM</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto truncate">Message Owner Name && DM</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto truncate">Message Owner Name && DM</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto truncate">Message Owner Name && DM</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto truncate">Message Owner Name && DM</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto truncate">Message Owner Name && DM</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                    <div class="short-chat sm:w-full sm:h-1/6 mobile hybrid border-b-2 border-blue-800 hover:border-blue-400 flex justifty-start">
+                        <div class="message-logo sm:w-3/12 sm:h-full mobile hybrid my-auto flex">
+                            <img src="https://dummyimage.com/110x110" alt="" class="m-auto rounded-full">
+                        </div>
+                        <div class="message-info sm:w-8/12 sm:h-full mobile hybrid">
+                            <div class="message-owner sm:w-full sm:h-2/5 mobile hybrid flex">
+                                <span class = "text-white text-xl pl-6 my-auto truncate">Message Owner Name && DM</span>
+                            </div>
+                            <div class="this-message sm:w-full sm:h-3/5 mobile hybrid overflow-hidden flex">
+                                <p class = "pl-6 text-white font-bold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, eaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Chat (Dm kutusunda gözükme şekli) -->
+                </div>
+                <!-- Dm Mesaj Alanı -->
+            </div>
+            <!-- Chat Place -->
+            <!-- Chat Menu -->
+            <div class="chat-side-menu sm:w-full sm:h-1-12 sm:flex mobile hybrid">
+                <div class="menu-1 sm:w-1/4 h-full mobile hybrid flex">
+                    <i class="icon-1-desktop fa-solid fa-message m-auto text-blue-800 hover:text-blue-400 w-10 h-10 hover:cursor-pointer channel-message"></i>
+                </div>
+                <div class="menu-2 sm:w-1/4 h-full mobile hybrid flex">
+                    <i class="icon-2-desktop fa-solid fa-user-group m-auto text-blue-800 hover:text-blue-400 w-10 h-10 hover:cursor-pointer group-message"></i>
+                </div>
+                <div class="menu-3 sm:w-1/4 h-full mobile hybrid flex">
+                    <i class="icon-3-desktop fa-solid fa-lock m-auto text-blue-800 hover:text-blue-400 w-10 h-10 hover:cursor-pointer dm-message"></i>
+                </div>
+                <div class="menu-4 sm:w-1/4 h-full mobile hybrid flex">
+                    <i class="icon-4-desktop fa-solid fa-bell m-auto text-blue-800 hover:text-blue-400 w-10 h-10 hover:cursor-pointer notifi-place"></i>
+                </div>
+            </div>
+            <!-- Chat Menu -->
+        </div>
+        <!-- Chat - Side -->
+        <!-- message - side -->
+        <div class="message-side sm:h-full sm:w-4/6 sm:border-l-2 sm:border-blue-800 mobile hybrid bg-darkblue-lower1">
+            <!-- Message Top Side -->
+            <div class="message-side-top sm:w-full sm:h-1-12 mobile hybrid border-b-2 border-blue-800 flex">
+                <div class="left sm:w-1/12 sm:h-full sm:flex mobile hybrid">
+                    <img src="https://dummyimage.com/50x50" alt="" class="m-auto rounded-full">
+                </div>
+                <div class="middle sm:w-10/12 sm:h-full sm:flex mobile hybrid">
+                    <span class="m-auto text-2xl text-white">Group Name [Online Count => 31]</span>
+                </div>
+                <div class="right sm:w-1/12 sm:h-full sm:flex mobile hybrid">
+                    <i class="fa-solid fa-plus text-white w-10 h-10 m-auto hover:cursor-pointer"></i>
+                </div>
+            </div>
+            <!-- Message Top Side -->
+            <!-- Message Middle Side -->
+            <div class="message-middle-side sm:w-full sm:h-10-12 mobile hybrid overflow-y-scroll no-scrollbar pt-2">
+                <!-- message 1 -->
+                <div class="player1-text sm:w-3/4 mobile hybrid flex justifty-end float-right mb-4">
+                    <div class="player1-text-place w-5/6 bg-blue-400 pl-2 pt-2 rounded-lg">
+                        <div class="text-info w-full pr-2">
+                            <span class = "text-owner text-xs"> Talha Aksoy</span>
+                            <span class = "text-time float-right text-xs"> 15:10 </span>
+                            <div class="clear"></div>
+                        </div>
+                        <p>asdasdsadasdasdasdsadasdsadasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdasd</p>
+                    </div>
+                    <div class=" w-1/6">
+                        <img src="https://dummyimage.com/100x100" alt="" class="m-auto rounded-full ">
+                    </div>
+                </div>
+                <!-- message 1 -->
+                <!-- message 2 -->
+                <div class="player2-text sm:w-3/4 mobile hybrid flex justifty-start float-left mb-4">
+                    <div class=" w-1/6">
+                        <img src="https://dummyimage.com/100x100" alt="" class="m-auto rounded-full ">
+                    </div>
+                    <div class="player2-text-place w-5/6 bg-blue-600 pl-2 pt-2 rounded-lg">
+                        <div class="text-info w-full pr-2">
+                            <span class = "text-owner text-xs"> Muhammed Karamuk</span>
+                            <span class = "text-time float-right text-xs"> 15:10 </span>
+                            <div class="clear"></div>
+                        </div>
+                        <p>asdasdsadasdasdasdsadasdsadasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdasd</p>
+                    </div>
+                </div>
+                <!-- message 2 -->
+                <!-- message 1 -->
+                <div class="player1-text sm:w-3/4 mobile hybrid flex justifty-end float-right mb-4">
+                    <div class="player1-text-place w-5/6 bg-blue-400 pl-2 pt-2 rounded-lg">
+                        <div class="text-info w-full pr-2">
+                            <span class = "text-owner text-xs"> Talha Aksoy</span>
+                            <span class = "text-time float-right text-xs"> 15:10 </span>
+                            <div class="clear"></div>
+                        </div>
+                        <p>asdasdsadasdasdasdsadasdsadasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdasd</p>
+                    </div>
+                    <div class=" w-1/6">
+                        <img src="https://dummyimage.com/100x100" alt="" class="m-auto rounded-full ">
+                    </div>
+                </div>
+                <!-- message 1 -->
+                <!-- message 2 -->
+                <div class="player2-text sm:w-3/4 mobile hybrid flex justifty-start float-left mb-4">
+                    <div class=" w-1/6">
+                        <img src="https://dummyimage.com/100x100" alt="" class="m-auto rounded-full ">
+                    </div>
+                    <div class="player2-text-place w-5/6 bg-blue-600 pl-2 pt-2 rounded-lg">
+                        <div class="text-info w-full pr-2">
+                            <span class = "text-owner text-xs"> Muhammed Karamuk</span>
+                            <span class = "text-time float-right text-xs"> 15:10 </span>
+                            <div class="clear"></div>
+                        </div>
+                        <p>asdasdsadasdasdasdsadasdsadasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdasd</p>
+                    </div>
+                </div>
+                <!-- message 2 -->
+                <!-- message 1 -->
+                <div class="player1-text sm:w-3/4 mobile hybrid flex justifty-end float-right mb-4">
+                    <div class="player1-text-place w-5/6 bg-blue-400 pl-2 pt-2 rounded-lg">
+                        <div class="text-info w-full pr-2">
+                            <span class = "text-owner text-xs"> Talha Aksoy</span>
+                            <span class = "text-time float-right text-xs"> 15:10 </span>
+                            <div class="clear"></div>
+                        </div>
+                        <p>asdasdsadasdasdasdsadasdsadasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdasd</p>
+                    </div>
+                    <div class=" w-1/6">
+                        <img src="https://dummyimage.com/100x100" alt="" class="m-auto rounded-full ">
+                    </div>
+                </div>
+                <!-- message 1 -->
+                <!-- message 2 -->
+                <div class="player2-text sm:w-3/4 mobile hybrid flex justifty-start float-left mb-4">
+                    <div class=" w-1/6">
+                        <img src="https://dummyimage.com/100x100" alt="" class="m-auto rounded-full ">
+                    </div>
+                    <div class="player2-text-place w-5/6 bg-blue-600 pl-2 pt-2 rounded-lg">
+                        <div class="text-info w-full pr-2">
+                            <span class = "text-owner text-xs"> Muhammed Karamuk</span>
+                            <span class = "text-time float-right text-xs"> 15:10 </span>
+                            <div class="clear"></div>
+                        </div>
+                        <p>asdasdsadasdasdasdsadasdsadasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdasd</p>
+                    </div>
+                </div>
+                <!-- message 2 -->
+                <!-- message 1 -->
+                <div class="player1-text sm:w-3/4 mobile hybrid flex justifty-end float-right mb-4">
+                    <div class="player1-text-place w-5/6 bg-blue-400 pl-2 pt-2 rounded-lg">
+                        <div class="text-info w-full pr-2">
+                            <span class = "text-owner text-xs"> Talha Aksoy</span>
+                            <span class = "text-time float-right text-xs"> 15:10 </span>
+                            <div class="clear"></div>
+                        </div>
+                        <p>asdasdsadasdasdasdsadasdsadasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdasd</p>
+                    </div>
+                    <div class=" w-1/6">
+                        <img src="https://dummyimage.com/100x100" alt="" class="m-auto rounded-full ">
+                    </div>
+                </div>
+                <!-- message 1 -->
+                <!-- message 2 -->
+                <div class="player2-text sm:w-3/4 mobile hybrid flex justifty-start float-left mb-4">
+                    <div class=" w-1/6">
+                        <img src="https://dummyimage.com/100x100" alt="" class="m-auto rounded-full ">
+                    </div>
+                    <div class="player2-text-place w-5/6 bg-blue-600 pl-2 pt-2 rounded-lg">
+                        <div class="text-info w-full pr-2">
+                            <span class = "text-owner text-xs"> Muhammed Karamuk</span>
+                            <span class = "text-time float-right text-xs"> 15:10 </span>
+                            <div class="clear"></div>
+                        </div>
+                        <p>asdasdsadasdasdasdsadasdsadasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdasd</p>
+                    </div>
+                </div>
+                <!-- message 2 -->
+                <div class = "clear"></div>
+            </div>
+            <!-- Message Middle Side -->
+            <!-- Message Bottom Side -->
+            <div class="message-bottom-side w-full h-1-12 border-t-2 border-blue-800 flex">
+                <div class="left sm:w-1/12 sm:h-full mobile hybrid flex">
+                    <button class = "w-10 h-10 m-auto" onclick="document.getElementById('getFile').click()">
+                        <i class="fa-solid fa-circle-plus w-10 h-10 text-blue-800 hover:text-blue-400 m-auto"></i>
+                    </button>
+                    <input type='file' id="getFile" style="display:none"> 
+                </div>
+                <div class="middle sm:w-9/12 sm:h-full mobile hybrid border-r-2 border-blue-800">
+                    <input type="text" class = "w-full h-full bg-darkblue-lower1 text-white" placeholder=" Message Here">
+                </div>
+                <div class="right sm:w-2/12  h-full mobile hybrid flex">
+                    <div class="emoji w-1/2 h-full flex">
+                        <i class="fa-solid fa-face-grin w-10 h-10 text-blue-800 hover:text-blue-400 m-auto"></i>
+                    </div>
+                    <div class="send-message sm:w-1/2 h-full mobile hybrid flex">
+                        <i class="fa-solid fa-circle-arrow-right w-10 h-10 m-auto text-blue-800 hover:text-blue-400"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Message Bottom Side -->
+        </div>
+        <!-- message - side -->
+    </div>
+	<!-- Desktop Design -->
+	<!-- Mobile Design -->
+	<div class="mobile-main visible sm:none w-full h-screen bg-darkblue-lower1">
+		<!-- mobile top -->
+		<div class="mobile-top w-full h-2/5 flex border-b-2 relative">
+			<div class="logo absolute top-0 left-0 w-20 h-20 flex">
+				<svg class = "w-10 h-10 fill-white my-auto" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
+					<path d="m24 12.42-4.428 4.415H24zm-4.428-4.417-4.414 4.418v4.414h4.414V12.42L24 8.003V3.575h-4.428zm-4.414 0 4.414-4.428h-4.414zM0 15.996h8.842v4.43h4.412V12.42H4.428l8.826-8.846H8.842L0 12.421z"/>
+				</svg>
+				<span class = "text-white my-auto font-bold">Chat</span>
+			</div>
+			<div class="mobile-pp m-auto flex">
+				<img src="https://dummyimage.com/200x200" alt="" class="mobile-pp m-auto absolute rounded-full border-2">
+			</div>
+			<div class="user-info w-full h-10 absolute bottom-0 flex">
+				<span class = "user-name m-auto text-white">Selim Talha Aksoy | Admin , Student</span>
+			</div>
+		</div>
+		<!-- mobile top -->
+		<!-- mobile bottom -->
+		<div class="mobile-bottom w-full h-3/5 relative">
+			<!-- mobile normal area -->
+			<div class="mobile-bottom-place absolute w-full h-full top-0 left-0 z-10">
+				<!-- mobile menu -->
+				<div class="mobile-menu w-full h-1/5">
+					<!-- mobile menu top -->
+					<div class="mobile-menu-top w-full h-full flex">
+						<div class="mobile-menu-icon-1 w-1/5 h-full flex">
+							<i class="fa-solid icon-1 fa-message m-auto text-blue-800 w-10 h-10"></i>
+						</div>
+						<div class="mobile-menu-icon-2 w-1/5 h-full flex ">
+							<i class="fa-solid icon-2 fa-user-group m-auto text-blue-800 w-10 h-10"></i>
+						</div>
+						<div class="mobile-menu-icon-3 w-1/5 h-full flex">
+							<i class="fa-solid icon-3 fa-lock m-auto text-blue-800 w-10 h-10"></i>
+						</div>
+						<div class="mobile-menu-icon-4 w-1/5 h-full flex">
+							<i class="fa-solid icon-4 fa-bell m-auto text-blue-800 w-10 h-10"></i>
+						</div>
+						<div class="mobile-menu-icon-5 w-1/5 h-full flex">
+							<i class="fa-solid icon-5 fa-gear z-10 w-10 h-10 m-auto text-blue-800 hover:cursor-pointer"></i>
+						</div>
+					</div>
+					<!-- mobile menu top -->
+					<div class="mobile-menu-border-b w-4/5 mx-auto h-1 border-b-2"></div>
+				</div>
+				<!-- mobile menu -->
+				<!-- mobile bottom -->
+				<div class="mobile-bottom w-full h-4/5 overflow-y-scroll no-scrollbar">
+					<!-- channel message menu --> 
+					<div class="mobile-bottom-message w-full h-full pt-2 none">
+						<!-- message short -->
+						<div class="mobile-message-short w-full h-1/4 flex border-b-2 mb-2">
+							<!-- profile photos -->
+							<div class="mobile-message-owner-pp w-1/4 h-full mb-2 flex">
+								<img src="https://dummyimage.com/200x200" alt="" class="m-auto mobile-mini-pp rounded-full">
+							</div>
+							<!-- profile photos -->
+							<!-- message text -->
+							<div class="mobile-message-info w-3/4 h-full">
+								<div class="mobile-message-owner w-full h-1/3 pl-2	 flex">
+									<span class = "my-auto text-white">Talha Aksoy</span>
+								</div>
+								<div class="mobile-message-short-info w-full h-2/3	pl-2 flex">
+									<p class = "truncate my-auto text-white"> asdsadsadsadsa sad asdsad as dasd asdsadasd as d asdasdsad asd sad sa dsad sad</p>
+								</div>
+							</div>
+							<!-- message text -->
+						</div>
+						<!-- message short -->
+						<!-- message short -->
+						<div class="mobile-message-short w-full h-1/4 flex border-b-2 mb-2">
+							<!-- profile photos -->
+							<div class="mobile-message-owner-pp w-1/4 h-full mb-2 flex">
+								<img src="https://dummyimage.com/200x200" alt="" class="m-auto mobile-mini-pp rounded-full">
+							</div>
+							<!-- profile photos -->
+							<!-- message text -->
+							<div class="mobile-message-info w-3/4 h-full">
+								<div class="mobile-message-owner w-full h-1/3 pl-2	 flex">
+									<span class = "my-auto text-white">Talha Aksoy</span>
+								</div>
+								<div class="mobile-message-short-info w-full h-2/3	pl-2 flex">
+									<p class = "truncate my-auto text-white"> asdsadsadsadsa sad asdsad as dasd asdsadasd as d asdasdsad asd sad sa dsad sad</p>
+								</div>
+							</div>
+							<!-- message text -->
+						</div>
+						<!-- message short -->
+					</div>
+					<!-- channel message menu -->
+                    <!-- channel group message menu -->
+					<div class="mobile-bottom-group-message w-full h-full pt-2 none">
+                        <!-- message short -->
+                        <div class="mobile-message-short w-full h-1/4 flex border-b-2 mb-2">
+                            <!-- profile photos -->
+                            <div class="mobile-message-owner-pp w-1/4 h-full mb-2 flex">
+                                <img src="https://dummyimage.com/200x200" alt="" class="m-auto mobile-mini-pp rounded-full">
+                            </div>
+                            <!-- profile photos -->
+                            <!-- message text -->
+                            <div class="mobile-message-info w-3/4 h-full">
+                                <div class="mobile-message-owner w-full h-1/3 pl-2	 flex">
+                                    <span class = "my-auto text-white">Chat42 Group</span>
+                                </div>
+                                <div class="mobile-message-short-info w-full h-2/3	pl-2 flex">
+                                    <p class = "truncate my-auto text-white"> asdsadsadsadsa sad asdsad as dasd asdsadasd as d asdasdsad asd sad sa dsad sad</p>
+                                </div>
+                            </div>
+                            <!-- message text -->
+                        </div>
+                        <!-- message short -->
+                    </div>
+                    <!-- channel group message menu -->
+                    <!-- dm -->
+					<div class="mobile-bottom-dm w-full h-full pt-2 none">
+                        <!-- message short -->
+                        <div class="mobile-message-short w-full h-1/4 flex border-b-2 mb-2">
+                            <!-- profile photos -->
+                            <div class="mobile-message-owner-pp w-1/4 h-full mb-2 flex">
+                                <img src="https://dummyimage.com/200x200" alt="" class="m-auto mobile-mini-pp rounded-full">
+                            </div>
+                            <!-- profile photos -->
+                            <!-- message text -->
+                            <div class="mobile-message-info w-3/4 h-full">
+                                <div class="mobile-message-owner w-full h-1/3 pl-2	 flex">
+                                    <span class = "my-auto text-white">Chat42 DM</span>
+                                </div>
+                                <div class="mobile-message-short-info w-full h-2/3	pl-2 flex">
+                                    <p class = "truncate my-auto text-white"> asdsadsadsadsa sad asdsad as dasd asdsadasd as d asdasdsad asd sad sa dsad sad</p>
+                                </div>
+                            </div>
+                            <!-- message text -->
+                        </div>
+                        <!-- message short -->
+                    </div>
+                    <!-- dm -->
+                    <!-- notif -->
+					<div class="mobile-bottom-notif w-full h-full pt-2 none">
+                        <!-- notif short -->
+                        <div class="mobile-message-notif w-full h-1/4 border-b-2 mb-2 break-word overflow-hidden pt-2">
+                            <span class = "bg-purple-400 bg-opacity-50">@42User Senden Bahsetti</span>
+                            <p class="truncate">asdasdsadasdasdasdsadasdsadasdasdasdasdasdasdasdasdsadasdasdasdasasdasdasdasdsadsaddasdasdasdasdasdasdasdasdasdasdasdasdasdas</p>
+                        </div>
+                        <!-- notif short -->
+                        <!-- notif short -->
+                        <div class="mobile-message-notif w-full h-1/4 border-b-2 mb-2 break-word overflow-hidden pt-2">
+                            <span class = "bg-purple-400 bg-opacity-50">@42User Senden Bahsetti</span>
+                            <p class="truncate">asdasdsadasdasdasdsadasdsadasdasdasdasdasdasdasdasdsadasdasdasdasasdasdasdasdsadsaddasdasdasdasdasdasdasdasdasdasdasdasdasdas</p>
+                        </div>
+                        <!-- notif short -->
+                    </div>
+                    <!-- notif -->
+                    <!-- settings -->
+					<div class="mobile-bottom-setting w-full h-full pt-2 none">
+                        <div class="settings-1 w-full h-1/4 border-b-2 flex mb-2">
+                            <div class="dark-mode m-auto">
+                                Dark Mode : On <input type="radio" name="dark" id=""> | Off <input type="radio" name="dark" id="">
+                            </div>
+                        </div>
+                        <div class="settings-1 w-full h-1/4 border-b-2 flex mb-2">
+                            <div class="dark-mode m-auto">
+                                Power Saver : On <input type="radio" name="dark" id=""> | Off <input type="radio" name="dark" id="">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- settings -->
+				</div>
+				<!-- mobile bottom -->
+			</div>
+			<!-- mobile normal area -->
+			<!-- mobile animation area -->
+			<div class="mobile-bottom-animation-area absolute top-0 left-0 w-full h-full z-0">
+				<ul class="circles-mobile">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<!-- mobile animation area -->
+		</div>
+		<!-- mobile bottom -->
+	</div>
+	<!-- Mobile Design -->
+</body>
+</html>

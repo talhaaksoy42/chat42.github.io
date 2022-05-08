@@ -1,0 +1,110 @@
+$(document).ready(function(){
+    console.log("Bedava Robux İstiyorsan => https://www.kisa.link/Q0xB");
+    console.log(":D");
+    console.log("⠄⠄⠄⢰⣧⣼⣯⠄⣸⣠⣶⣶⣦⣾⠄⠄⠄⠄⡀⠄⢀⣿⣿⠄⠄⠄⢸⡇⠄⠄");
+    console.log("⠄⠄⠄⣾⣿⠿⠿⠶⠿⢿⣿⣿⣿⣿⣦⣤⣄⢀⡅⢠⣾⣛⡉⠄⠄⠄⠸⢀⣿⠄");
+    console.log("⠄⠄⢀⡋⣡⣴⣶⣶⡀⠄⠄⠙⢿⣿⣿⣿⣿⣿⣴⣿⣿⣿⢃⣤⣄⣀⣥⣿⣿⠄");
+    console.log("⠄⠄⢸⣇⠻⣿⣿⣿⣧⣀⢀⣠⡌⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⣿⣿⣿⠄");
+    console.log("⠄⢀⢸⣿⣷⣤⣤⣤⣬⣙⣛⢿⣿⣿⣿⣿⣿⣿⡿⣿⣿⡍⠄⠄⢀⣤⣄⠉⠋⣰");
+    console.log("⠄⣼⣖⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⢇⣿⣿⡷⠶⠶⢿⣿⣿⠇⢀⣤");
+    console.log("⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽⣿⣿⣿⡇⣿⣿⣿⣿⣿⣿⣷⣶⣥⣴⣿⡗");
+    console.log("⢀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠄");
+    console.log("⢸⣿⣦⣌⣛⣻⣿⣿⣧⠙⠛⠛⡭⠅⠒⠦⠭⣭⡻⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠄");
+    console.log("⠘⣿⣿⣿⣿⣿⣿⣿⣿⡆⠄⠄⠄⠄⠄⠄⠄⠄⠹⠈⢋⣽⣿⣿⣿⣿⣵⣾⠃⠄");
+    console.log("⠄⠘⣿⣿⣿⣿⣿⣿⣿⣿⠄⣴⣿⣶⣄⠄⣴⣶⠄⢀⣾⣿⣿⣿⣿⣿⣿⠃⠄⠄");
+    console.log("⠄⠄⠈⠻⣿⣿⣿⣿⣿⣿⡄⢻⣿⣿⣿⠄⣿⣿⡀⣾⣿⣿⣿⣿⣛⠛⠁⠄⠄⠄");
+    console.log("⠄⠄⠄⠄⠈⠛⢿⣿⣿⣿⠁⠞⢿⣿⣿⡄⢿⣿⡇⣸⣿⣿⠿⠛⠁⠄⠄⠄⠄⠄");
+    console.log("⠄⠄⠄⠄⠄⠄⠄⠉⠻⣿⣿⣾⣦⡙⠻⣷⣾⣿⠃⠿⠋⠁⠄⠄⠄⠄⠄⢀⣠⣴");
+    console.log("⣿⣿⣿⣶⣶⣮⣥⣒⠲⢮⣝⡿⣿⣿⡆⣿⡿⠃⠄⠄⠄⠄⠄⠄⠄⣠⣴⣿⣿⣿");
+    /////////////////////////////////////////////////////
+    $(".icon-1").addClass("active");
+    $(".mobile-bottom-message").removeClass("none");
+    $(".icon-1-desktop").addClass("active");
+    $('.menu-1').click(function() {
+        $(".chat-place-message").removeClass('none');
+        $(".chat-place-group-message").addClass('none');
+        $(".chat-place-dm-message").addClass('none');
+        $(".icon-1-desktop").addClass("active");
+        $(".icon-2-desktop").removeClass("active");
+        $(".icon-3-desktop").removeClass("active");
+        $(".icon-4-desktop").removeClass("active");
+    });
+    $('.menu-2').click(function() {
+        $(".chat-place-message").addClass('none');
+        $(".chat-place-group-message").removeClass('none');
+        $(".chat-place-dm-message").addClass('none');
+        $(".icon-1-desktop").removeClass("active");
+        $(".icon-2-desktop").addClass("active");
+        $(".icon-3-desktop").removeClass("active");
+        $(".icon-4-desktop").removeClass("active");
+    });
+    $('.menu-3').click(function() {
+        $(".chat-place-message").addClass('none');
+        $(".chat-place-group-message").addClass('none');
+        $(".chat-place-dm-message").removeClass('none');
+        $(".icon-1-desktop").removeClass("active");
+        $(".icon-2-desktop").removeClass("active");
+        $(".icon-3-desktop").addClass("active");
+        $(".icon-4-desktop").removeClass("active");
+    });
+    $(".mobile-menu-icon-1").click(function() {
+        $(".icon-1").addClass("active");
+        $(".icon-2").removeClass("active");
+        $(".icon-3").removeClass("active");
+        $(".icon-4").removeClass("active");
+        $(".icon-5").removeClass("active");
+        $(".mobile-bottom-message").removeClass("none");
+        $(".mobile-bottom-group-message").addClass("none");
+        $(".mobile-bottom-dm").addClass("none");
+        $(".mobile-bottom-notif").addClass("none");
+        $(".mobile-bottom-setting").addClass("none");
+    });
+    $(".mobile-menu-icon-2").click(function() {
+        $(".icon-1").removeClass("active");
+        $(".icon-2").addClass("active");
+        $(".icon-3").removeClass("active");
+        $(".icon-4").removeClass("active");
+        $(".icon-5").removeClass("active");
+        $(".mobile-bottom-message").addClass("none");
+        $(".mobile-bottom-group-message").removeClass("none");
+        $(".mobile-bottom-dm").addClass("none");
+        $(".mobile-bottom-notif").addClass("none");
+        $(".mobile-bottom-setting").addClass("none");
+    });
+    $(".mobile-menu-icon-3").click(function() {
+        $(".icon-1").removeClass("active");
+        $(".icon-2").removeClass("active");
+        $(".icon-3").addClass("active");
+        $(".icon-4").removeClass("active");
+        $(".icon-5").removeClass("active");
+        $(".mobile-bottom-message").addClass("none");
+        $(".mobile-bottom-group-message").addClass("none");
+        $(".mobile-bottom-dm").removeClass("none");
+        $(".mobile-bottom-notif").addClass("none");
+        $(".mobile-bottom-setting").addClass("none");
+    });
+    $(".mobile-menu-icon-4").click(function() {
+        $(".icon-1").removeClass("active");
+        $(".icon-2").removeClass("active");
+        $(".icon-3").removeClass("active");
+        $(".icon-4").addClass("active");
+        $(".icon-5").removeClass("active");
+        $(".mobile-bottom-message").addClass("none");
+        $(".mobile-bottom-group-message").addClass("none");
+        $(".mobile-bottom-dm").addClass("none");
+        $(".mobile-bottom-notif").removeClass("none");
+        $(".mobile-bottom-setting").addClass("none");
+    });
+    $(".mobile-menu-icon-5").click(function() {
+        $(".icon-1").removeClass("active");
+        $(".icon-2").removeClass("active");
+        $(".icon-3").removeClass("active");
+        $(".icon-4").removeClass("active");
+        $(".icon-5").addClass("active");
+        $(".mobile-bottom-message").addClass("none");
+        $(".mobile-bottom-group-message").addClass("none");
+        $(".mobile-bottom-dm").addClass("none");
+        $(".mobile-bottom-notif").addClass("none");
+        $(".mobile-bottom-setting").removeClass("none");
+    });
+});
